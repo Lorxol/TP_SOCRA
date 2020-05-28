@@ -13,7 +13,7 @@ public class ConsoleAdapter implements IOAdapter {
 
     @Override
     public void write(String message) {
-        System.out.println(message);
+        System.out.print(message);
     }
 
 }

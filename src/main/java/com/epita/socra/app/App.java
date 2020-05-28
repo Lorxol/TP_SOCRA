@@ -10,6 +10,7 @@ import java.util.TreeMap;
  */
 public final class App {
     private IOAdapter adapter;
+    private boolean to_rom = true;
 
     private App() {
         this(new ConsoleAdapter());
@@ -30,18 +31,34 @@ public final class App {
     }
 
     public void run() {
-        adapter.write("Type a number:");
-        String number = adapter.read();
         Roman roman = new Roman();
         String res = new String();
-        try {
-            res = roman.to_roman(Integer.parseInt(number));
-        }
-        catch (NumberFormatException e)
-        {
-            adapter.write("Incorrect input format");
-        }
-        adapter.write(res.toString());
-    }
+        while (true) {
 
+            adapter.write("> ");
+            String input = adapter.read();
+
+            if (input.isEmpty())
+                break;
+
+            if (input.contains("Roman")) {
+                to_rom = true;
+                continue;
+            }
+            if (input.contains("Arabic")) {
+                to_rom = false;
+                continue;
+            }
+
+            try {
+                if (to_rom)
+                    res = roman.to_roman(Integer.parseInt(input));
+                else
+                    res = roman.to_arabic(input).toString();
+            } catch (NumberFormatException e) {
+                adapter.write("Incorrect input format\n");
+            }
+            adapter.write(res + '\n');
+        }
+    }
 }
