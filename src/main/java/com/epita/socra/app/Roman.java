@@ -35,7 +35,17 @@ public class Roman {
                 num -= entry.getKey();
             }
         }
-
         return sb.toString();
+    }
+
+    public Integer to_arabic(String num) {
+        Integer res = 0;
+        for (Map.Entry<Integer, String> entry : symbols.entrySet()) {
+            while (num.startsWith(entry.getValue())) {
+                res += entry.getKey();
+                num = num.substring(entry.getValue().length());
+            }
+        }
+        return res;
     }
 }
