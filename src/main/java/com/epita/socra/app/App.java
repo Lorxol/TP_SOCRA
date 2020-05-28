@@ -2,6 +2,9 @@ package com.epita.socra.app;
 
 import com.epita.socra.app.tools.*;
 
+import java.util.Collections;
+import java.util.TreeMap;
+
 /**
  * Hello world!
  */
@@ -28,9 +31,10 @@ public final class App {
 
     public void run(){
         adapter.write("Type a number:");
-        String name = adapter.read();
-        while (true) {
-            adapter.write("Nice to meet you, " + name + " !");
-        }
+        String number = adapter.read();
+        Roman roman = new Roman();
+        String res = roman.to_roman(Integer.parseInt(number));
+        adapter.write(res.toString());
     }
+
 }

@@ -19,19 +19,31 @@ public class AppTest {
      * Rigorous Test.
      */
     @Test
-    public void givenAMock_WhenRunningMain_ThenCheckOuputs() {
+    public void checkOne() {
         IOAdapter mock = mock(IOAdapter.class);
-        when(mock.read()).thenReturn("TEST");
+        when(mock.read()).thenReturn("1");
         App app = new App(mock);
         app.run();
 
-        verify(mock).write("Hello, what's your name ?");
-        verify(mock).write(argThat(message -> message.contains("TEST")));
+        verify(mock).write("Type a number:");
+        verify(mock).write(argThat(message -> message.contains("I")));
 
     }
 
     @Test
     public void checkThree() {
+        IOAdapter mock = mock(IOAdapter.class);
+        when(mock.read()).thenReturn("3");
+        App app = new App(mock);
+        app.run();
+
+        verify(mock).write("Type a number:");
+        verify(mock).write(argThat(message -> message.contains("III")));
+
+    }
+
+    @Test
+    public void check() {
         IOAdapter mock = mock(IOAdapter.class);
         when(mock.read()).thenReturn("3");
         App app = new App(mock);
