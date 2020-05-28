@@ -34,9 +34,27 @@ public class RomanTest {
     }
 
     @Test
+    public void checkTwentyFour() {
+        Roman roman = new Roman();
+        assert roman.to_roman(24).equals("XXIV");
+    }
+
+    @Test
     public void checkRomanFifty() {
         Roman roman = new Roman();
         assert roman.to_roman(50).equals("L");
+    }
+
+    @Test
+    public void checkRomanFiftyNine() {
+        Roman roman = new Roman();
+        assert roman.to_roman(59).equals("LIX");
+    }
+
+    @Test
+    public void checkRomanNinetyNine() {
+        Roman roman = new Roman();
+        assert roman.to_roman(99).equals("XCIX");
     }
 
     @Test
