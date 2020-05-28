@@ -60,5 +60,6 @@ public final class App {
             }
             adapter.write(res + '\n');
         }
+
     }
 }
