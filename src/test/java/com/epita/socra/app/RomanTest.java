@@ -30,7 +30,43 @@ public class RomanTest {
     @Test
     public void checkRomanTwenty() {
         Roman roman = new Roman();
-        assert roman.to_roman(9).equals("L");
+        assert roman.to_roman(20).equals("XX");
+    }
+
+    @Test
+    public void checkFifty() {
+        Roman roman = new Roman();
+        assert roman.to_roman(50).equals("L");
+    }
+
+    @Test
+    public void checkHundred() {
+        Roman roman = new Roman();
+        assert roman.to_roman(100).equals("C");
+    }
+
+    @Test
+    public void checkFiveHundred() {
+        Roman roman = new Roman();
+        assert roman.to_roman(500).equals("D");
+    }
+
+    @Test
+    public void checkThousand() {
+        Roman roman = new Roman();
+        assert roman.to_roman(1000).equals("M");
+    }
+
+    @Test
+    public void checkTwoThousand() {
+        Roman roman = new Roman();
+        assert roman.to_roman(2000).equals("MM");
+    }
+
+    @Test
+    public void checkThreeThousand() {
+        Roman roman = new Roman();
+        assert roman.to_roman(3000).equals("MMM");
     }
 
     @Test
