@@ -43,14 +43,59 @@ public class AppTest {
     }
 
     @Test
-    public void check() {
+    public void checkEight() {
         IOAdapter mock = mock(IOAdapter.class);
-        when(mock.read()).thenReturn("3");
+        when(mock.read()).thenReturn("8");
         App app = new App(mock);
         app.run();
 
         verify(mock).write("Type a number:");
-        verify(mock).write(argThat(message -> message.contains("III")));
+        verify(mock).write(argThat(message -> message.contains("VIII")));
 
+    }
+
+    @Test
+    public void checkThirteen() {
+        IOAdapter mock = mock(IOAdapter.class);
+        when(mock.read()).thenReturn("13");
+        App app = new App(mock);
+        app.run();
+
+        verify(mock).write("Type a number:");
+        verify(mock).write(argThat(message -> message.contains("XIII")));
+
+    }
+
+    @Test
+    public void checkFifty() {
+        IOAdapter mock = mock(IOAdapter.class);
+        when(mock.read()).thenReturn("50");
+        App app = new App(mock);
+        app.run();
+
+        verify(mock).write("Type a number:");
+        verify(mock).write(argThat(message -> message.contains("L")));
+    }
+
+    @Test
+    public void checkHundred() {
+        IOAdapter mock = mock(IOAdapter.class);
+        when(mock.read()).thenReturn("50");
+        App app = new App(mock);
+        app.run();
+
+        verify(mock).write("Type a number:");
+        verify(mock).write(argThat(message -> message.contains("L")));
+    }
+
+    @Test
+    public void checkError() {
+        IOAdapter mock = mock(IOAdapter.class);
+        when(mock.read()).thenReturn("yololo");
+        App app = new App(mock);
+        app.run();
+
+        verify(mock).write("Type a number:");
+        verify(mock).write(argThat(message -> message.contains("Incorrect input format")));
     }
 }

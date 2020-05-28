@@ -33,7 +33,14 @@ public final class App {
         adapter.write("Type a number:");
         String number = adapter.read();
         Roman roman = new Roman();
-        String res = roman.to_roman(Integer.parseInt(number));
+        String res = new String();
+        try {
+            res = roman.to_roman(Integer.parseInt(number));
+        }
+        catch (NumberFormatException e)
+        {
+            adapter.write("Incorrect input format");
+        }
         adapter.write(res.toString());
     }
 
