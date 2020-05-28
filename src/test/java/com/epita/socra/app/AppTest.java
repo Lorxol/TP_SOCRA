@@ -29,4 +29,16 @@ public class AppTest {
         verify(mock).write(argThat(message -> message.contains("TEST")));
 
     }
+
+    @Test
+    public void checkThree() {
+        IOAdapter mock = mock(IOAdapter.class);
+        when(mock.read()).thenReturn("3");
+        App app = new App(mock);
+        app.run();
+
+        verify(mock).write("Type a number:");
+        verify(mock).write(argThat(message -> message.contains("III")));
+
+    }
 }
