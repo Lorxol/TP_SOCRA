@@ -29,7 +29,7 @@ public final class App {
         application.run();
     }
 
-    public void run(){
+    public void run() {
         adapter.write("Type a number:");
         String number = adapter.read();
         Roman roman = new Roman();

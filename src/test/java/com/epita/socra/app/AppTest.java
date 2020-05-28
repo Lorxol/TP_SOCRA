@@ -80,12 +80,12 @@ public class AppTest {
     @Test
     public void checkHundred() {
         IOAdapter mock = mock(IOAdapter.class);
-        when(mock.read()).thenReturn("50");
+        when(mock.read()).thenReturn("100");
         App app = new App(mock);
         app.run();
 
         verify(mock).write("Type a number:");
-        verify(mock).write(argThat(message -> message.contains("L")));
+        verify(mock).write(argThat(message -> message.contains("C")));
     }
 
     @Test

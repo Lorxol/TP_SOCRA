@@ -27,12 +27,15 @@ public class Roman {
 
     public String to_roman(Integer num) {
         StringBuilder sb = new StringBuilder();
+
         for (Map.Entry<Integer, String > entry : symbols.entrySet()) {
+
             while (num >= entry.getKey()) {
                 sb.append(entry.getValue());
                 num -= entry.getKey();
             }
         }
+
         return sb.toString();
     }
 }
